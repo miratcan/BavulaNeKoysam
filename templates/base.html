@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body      { padding: 0; margin: 0;
+                  background: #0081bc url(/static/img/gradient.png) repeat-x;
+                  font-family: sans-serif;
+                  font-size: 18px;
+                  letter-spacing: 2px;
+                  color: #333; }
+      .bottom   { background: #fff; border-top: 1px solid #ccc; overflow auto; padding: 10px;}
+      .topnote,
+      .footnote { font-size: 13px; letter-spacing: 0; line-height: 16px}
+      .topnote  { padding: 10px;}
+      .footnote { text-align: center; line-height: 16px; overflow: auto; margin: 40px 0;}
+      .wrapper  { max-width: 800px; margin: 0 auto; position: relative; overflow: auto; }
+      #luggage  { width: 424px;
+                  height: 246px;
+                  margin: 0 auto;
+                  background: url(/static/img/luggage.png) no-repeat center center; }
+
+      #plane-stripe
+                { background: url(/static/img/plane-stripe.png) no-repeat;
+                  width: 388px;
+                  height: 180px;
+                  position: absolute;
+                  top: 235px;
+                  left: 25px; }
+
+      #barcode  { background: url(/static/img/barcode.png) no-repeat; 
+                  width: 234px;
+                  height: 66px;
+                  left: 40px;
+                  top: 760px;
+                  float: left;}
+
+      #stamp    { background: url(/static/img/stamp.png) no-repeat; 
+                  width: 137px;
+                  height: 139px;
+                  position: absolute;
+                  top: 450px;
+                  right: 60px; }
+
+      table     { width: 100%;
+                  border-spacing: 20px; }
+
+      .desc     { font-size: 13px;
+                  margin-top: -10px;
+                  color: #888; }
+    
+      #map      { width: 494px;
+                  height: 522px;
+                  background: url(/static/img/map.png) no-repeat;
+                  position: absolute;
+                  top: 500px;
+                  left: 0;
+                  z-index: -1; }
+
+      #passport { width: 387px;
+                  height: 377px;
+                  background: url(/static/img/passport.png) no-repeat;
+                  position: absolute;
+                  top: 900px;
+                  right: 0;
+                  -moz-transform: scaleX(-1);
+                  -o-transform: scaleX(-1);
+                  -webkit-transform: scaleX(-1);
+                  transform: scaleX(-1);
+                  filter: FlipH;
+                  -ms-filter: "FlipH"; }
+
+      #redirect_to_checklist
+                { width: 120px;
+                  height: 57px;
+                  color: #fff;
+                  margin: 4px 0 0 0;
+                  background: #333;
+                  border: none;
+                  font-size:20px;
+                  float: right; }
+      .field  { overflow: auto; }
+      .ticket {   color: #333;
+                  width: 470px;
+                  margin: 0 auto;
+                  margin-bottom: 40px;
+                  padding: 0;
+                  border-radius: 10px;
+                  box-shadow: 0 0 10px #666;
+                  position: relative;
+                  background: url(/static/img/paperbody.png) -2px 0; }
+
+      .inner    { padding: 15px 70px 15px 40px; }
+
+      #f_sex, .topnote    { border-bottom: 1px dashed #0081bc; }
+      #f_dest   { border-top: 1px dashed #0081bc;}
+      #f_days   { background: url(/static/img/plane-stripe.png) no-repeat 20px 0;
+                  height: 180px;}
+      ul        { list-style-type: square; }
+      li        { margin-bottom: 20px; }
+      h4        { margin: 0 0 10px 0; }
+      .fb-comments, .fb-comments span, .fb-comments iframe { width: 100% !important; }
+
+      /* @media Rule */
+      @media all and (max-width: 330px ) {
+
+        #wrapper { width: auto; margin: 0; padding: 10px; }
+
+        body     { font-size: 14px; padding: 0; margin: 0; }
+
+        #luggage, #luggage2
+                 { max-width: 100%; }
+
+        .ticket  { border-radius: 0;
+                   background: #eee;
+                   width: auto; 
+                   height: auto;
+                   overflow: auto; }
+
+        ul      { padding-left: 20px; }
+
+        #f_sex  { border-bottom: dotted 3px #ddd; }
+        #f_dest { border-top: none; }
+
+        .field {
+          border-bottom: dotted 3px #ddd;
+          padding: 10px;
+        }
+
+        #f_days { background-image: none; height: auto; }
+        #f_days input { display: block; margin: 0 0 20px 0; }
+        #stamp, #barcode, #map, #passport { display: none;}
+        #redirect_to_checklist { display: block; position: relative; }
+      }
+
+    </style>
+    <script src="/static/js/jquery-1.11.1.min.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <title>Bavula Ne Koysam?</title>
+    <meta name="description" content="Seyahate çıkarken bavula koyulacaklar listesi hazırlamanızı kolaylaştıracak basit web uygulamasıdır.">
+    <meta name="keywords" content="tatil, bavul, çanta, bavula ne koysam, çantaya ne koysam, bavuluma ne koysam, çantama ne koysam, plaj, seyahat, uçak bileti, bavul, çanta, çanta hazırlamak, kamp çantası, çadır, güneş kremi">
+
+    <meta property="og:title" content="Bavula Ne Koysam?"/>
+    <meta property="og:description" content="{% block description %}Seyahate çıkarken bavula koyulacaklar listesi hazırlamanızı kolaylaştıracak basit web uygulamasıdır.{% endblock %}" />
+    <meta property="og:image" content="http://bavulakoyulacaklar.appspot.com/static/img/luggage.png"/>
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body>
+    <div class="wrapper">
+      {% block content %}
+      {% endblock %}
+    </div>
+    <div class="bottom">
+      <div class="wrapper">
+        {% block bottom %}{% endblock %}
+        <p class="footnote">Bu site en iyi Google Chrome ile görüntülenebilir. Buradaki listeler sadece tavsiye amaçlıdır oluşabilecek sorunlar karşısında sorumluluk kabul edilmez. Yapan Eden: <a href="https://twitter.com/mirat">@mirat</a>.</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-10242998-4', 'auto');
+    ga('send', 'pageview');
+  </script>
+</html>

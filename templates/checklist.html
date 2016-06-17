@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block description %}{{ description }}{% endblock %}
+{% block content %}
+  <div id="fb-root"></div>
+  <script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/tr_TR/sdk.js#xfbml=1&appId=592768750841298&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  </script>
+  <a href="/"><div id="luggage"></div></a>
+  <div id="map"></div>
+  <div id="passport"></div>
+  <div class="ticket">
+    <div class="topnote field inner">Bu sayfanın adresini tarayıcının yer imlerine kaydedebilir, ya da sosyal medya hesaplarında paylaşabilirsin. Listede bir eksiklik olduğunu düşünüyorsan lütfen sayfanın aşağısındaki yorumlar kısmını kullan.</div>
+    <div class="topnote field inner">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- Bavulanekoysam -->
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2927206957331194"
+           data-ad-slot="3569393609"
+           data-ad-format="auto"></ins>
+      <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
+</script>
+    <div class="field inner">
+    {% for type, needs in grouped_needs.items() %}
+      <div class="needgroup">
+        <h4>{{ type }}</h4>
+        <ul>
+        {% for need in needs %}
+          <li>{{ need.item }} {% if need.total_amount %}X {{ need.total_amount }}{% endif %} </p>
+          {% if need.description %}<p class="weak desc">{{ need.description }}</p>{% endif %}{% for note in need.notes %}<p class="weak desc">{{ note }}</p>{% endfor %}</li>
+        {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+{% endblock %}
+{% block bottom %}
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'bavulanekoysam'; // required: replace example with your forum shortname
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+{% endblock %}

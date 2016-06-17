@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block extra_head %}
+<script>
+  $(document).ready(function() {
+    $.fn.serializeObject = function()
+    {
+        var o = {};
+        var a = this.serializeArray();
+        $.each(a, function() {
+            if (o[this.name] !== undefined) {
+                if (!o[this.name].push) {
+                    o[this.name] = [o[this.name]];
+                }
+                o[this.name].push(this.value || '');
+            } else {
+                o[this.name] = this.value || '';
+            }
+        });
+        return o;
+    };
+
+    $('#redirect_to_checklist').click(function()
+    {
+      var form_data = $('form').serializeObject();
+      if (!('cinsiyet' in form_data &&
+            'sure' in form_data &&
+            'hedef' in form_data &&
+            'etkinlik' in form_data &&
+            'hava' in form_data)) { alert('bütün alanları ekmelettin?'); return false;};
+      var redirect_url_template = 'cinsiyet/$cinsiyet/sure/$sure/hedef/$hedef/etkinlik/$etkinlik/hava/$hava/'
+      var redirect_url = redirect_url_template.replace('$cinsiyet', form_data['cinsiyet'])
+                                              .replace('$sure', form_data['sure'])
+                                              .replace('$hedef', form_data['hedef'])
+                                              .replace('$etkinlik', form_data['etkinlik'])
+                                              .replace('$hava', form_data['hava']);
+      window.location = redirect_url;
+    });
+  });
+</script>
+{% endblock %}
+{% block content %}
+<div id="luggage"></div>
+<div class="ticket">
+  <div id="stamp"></div>
+  <form action="/" method="get">
+    <table class="field inner" id="f_sex">
+      <tr>
+      {% for slug, name in genders.iteritems() %}
+        <td><input type="radio" name="cinsiyet" value="{{ slug }}" id='cinsiyet_{{ slug }}'>
+            <label for="cinsiyet_{{ slug }}">{{ name }}</label></td>
+      {% endfor %}
+      </tr>
+    </table>
+    <table class="field inner" id="f_event">
+      {% for event_types in event_type_groups %}
+        <tr>
+          {% for slug, name in event_types %}
+            <td><input type='radio' name='etkinlik' id='etkinlik_{{ slug }}' value='{{ slug }}'>
+                <label for="etkinlik_{{ slug }}">{{ name }}</label></td>
+          {% endfor %}
+        </tr>
+      {% endfor %}
+    </table>
+    <table class="field inner" id="f_days">
+        <tr>
+        {% for days, name in travel_days.iteritems() %}
+          <td><input type="radio" name="sure" id='sure_{{ days }}' value="{{ days }}">
+              <label for="sure_{{ days }}">{{ name }}</label></td>
+        {% endfor %}
+      </tr>
+    </table>
+    <table class="field inner" id="f_weat">
+      {% for slug, name in weather_types.iteritems() %}
+        <tr><td><input type="radio" name="hava" id='hava_{{ slug }}' value="{{ slug }}">
+                <label for="hava_{{ slug }}">{{ name }}</label></td></tr>
+      {% endfor %}
+    </table>
+    <table class="field inner" id="f_dest">
+      <tr>
+      {% for slug, name in destination_types.iteritems() %}
+        <td><input type="radio" name="hedef" value="{{ slug }}" id='hedef_{{ slug }}'>
+            <label for="hedef_{{ slug }}">{{ name }}</label></td>
+      {% endfor %}
+      </tr>
+    </table>
+    <div class="field inner">
+      <div id="barcode"></div>
+      <input id='redirect_to_checklist' type='button' value='LISTELE'>
+    </div>
+  </form>
+</div>
+{% endblock %}

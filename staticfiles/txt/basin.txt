@@ -1,0 +1,7 @@
+Bavul hazırlamaya yardımcı mini web uygulaması: Bavula Ne Koysam?
+
+Seyahate gitmenin en büyük sıkıntılarından biri bavul hazırlamaktır. Karar verme aşaması zaman kaybı olduğu gibi; işin sonunda ya ihtiyacımız olan olmayan her şeyi doldurur, ya da küçük çanta hazırlayacağım derken zaruri ihtiyaçlarımızı es geçeriz. Bavula Ne Koysam? işte tam bu problemlere çözüm bulmak için bir hafta sonu projesi olarak ortaya çıkmış.
+
+Uygulama, cinsiyet, gidilecek yer ve etkinlik türü gibi basit bilgiler girdiğimizde bir bavula koyulacaklar listesi elde etmemizi sağlıyor. Bu listeyi istersek yer imi olarak kaydedebiliyor, sosyal medya hesaplarımızda paylaşabiliyoruz. Ayrıca her listenin altına bir yorum alanı mevcut. Bu yorum alanında listeyle ilgili eksik ya da fazla gördüğümüz şeyleri tartışıp görüş alışverişinde bulunmak mümkün.
+
+Sonuç olarak elimizde bavul hazırlarken işimizi kolaylaştırabilecek oldukça şık bir uygulama var. Ulaşmak için: http://bavulanekoysam.appspot.com 
