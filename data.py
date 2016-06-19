@@ -103,7 +103,8 @@ ITEMS = {
     'kayak_corabi': u'Kayak Çorabı',
     'kayak_eldiveni': u'Kayak Eldiveni',
     'kayak_gozlugu': u'Kayak Gözlüğü',
-    'iclik': u'İçlik (Orta Tabaka)'
+    'iclik': u'İçlik (Orta Tabaka)',
+    'uzun_ic_camasiri': u'Uzun İç Çamaşırı'
 }
 
 SUGGESTIONS = {
