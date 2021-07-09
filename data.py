@@ -12,7 +12,7 @@ GENDERS = {
 
 ITEMS = {
     'gunes_gozlugu': u'Güneş gözlüğü',
-    'gunes_koruyuc_krem': u'Güneşten Koruyucu Krem',
+    'gunes_koruyucu_krem': u'Güneşten Koruyucu Krem',
     'gunes_yagi': u'Güneş Yağı',
     'sort': u'Şort',
     'corap': u'Çorap',
@@ -39,7 +39,7 @@ ITEMS = {
     'bocek_kovucu_sprey': u'Böcek Kovucu Sprey',
     'sapka': u'Şapka',
     'kagit_havlu': u'Kağıt Havlu',
-    'islak_medil': u'İslak mendil',
+    'islak_mendil': u'Islak mendil',
     'deodorant': u'Deodorant',
     'parfum': u'Parfüm',
     'gunluk_ped': u'Günlük Ped',
@@ -171,7 +171,7 @@ NEEDS = [
      'total_amount': 1},
 
     {'type': 'bakim_hijyen',
-     'item': 'islak_medil',
+     'item': 'islak_mendil',
      'daily_amount': 0.20},
 
     {'type': 'bakim_hijyen',
@@ -239,7 +239,7 @@ NEEDS = [
     # Generic (Sicak) --------------------------------------------------------
 
     {'type': 'ilaclar',
-     'item': 'gunes_koruyuc_krem',
+     'item': 'gunes_koruyucu_krem',
      'weather_types': ['sicak'],
      'total_amount': 1},
 
